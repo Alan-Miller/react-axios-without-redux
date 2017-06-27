@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import {getCustomerList} from '../customers';
 
 import Header from './Header/Header';
 import List from './List/List';
@@ -15,7 +16,14 @@ class App extends Component {
       creating: false,
       currentCustomer: null
     }
+  }
 
+  componentDidMount() {
+    getCustomerList().then(res => {
+      this.setState({
+        customerList: res
+      })
+    })
   }
 
   render() {
