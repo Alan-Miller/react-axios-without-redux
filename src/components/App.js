@@ -16,6 +16,7 @@ class App extends Component {
       creating: false,
       currentCustomer: null
     }
+    this.startNewCustomer = this.startNewCustomer.bind(this)
   }
 
   componentDidMount() {
@@ -26,7 +27,17 @@ class App extends Component {
     })
   }
 
+  startNewCustomer() {
+    this.setState({
+      creating: true
+      ,initialLoad: false
+      ,currentCustomer: null
+    })
+  }
+
   render() {
+    var {startNewCustomer} = this.props;
+
     return (
       <div>
         <Header />
@@ -35,6 +46,7 @@ class App extends Component {
             this.state.customerList ?
             <List
               customerList={this.state.customerList || []}
+              startNewCustomer={this.startNewCustomer}
               />
             : null
           }
