@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {getCustomerList} from '../customers';
+import {getCustomerList, postCustomer} from '../customers';
 
 import Header from './Header/Header';
 import List from './List/List';
@@ -17,6 +17,7 @@ class App extends Component {
       currentCustomer: null
     }
     this.startNewCustomer = this.startNewCustomer.bind(this)
+    this.createCustomer = this.createCustomer.bind(this)
   }
 
   componentDidMount() {
@@ -35,8 +36,20 @@ class App extends Component {
     })
   }
 
+  createCustomer(customerObj) {
+    postCustomer(customerObj).then(response => {
+      getCustomerList().then(list => {
+        this.setState({
+          customerList: list
+          ,initialLoad: true
+          ,creating: true
+        })
+      })
+    })
+  }
+
   render() {
-    var {startNewCustomer} = this.props;
+    // var {startNewCustomer} = this.props;
 
     return (
       <div>
