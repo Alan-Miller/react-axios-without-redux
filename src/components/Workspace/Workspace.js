@@ -29,7 +29,7 @@ function Workspace( { initialLoad, creating, currentCustomer, createCustomer } )
                         status={currentCustomer.status}
                         log={currentCustomer.log}
                         />
-            : null
+                : null
       }
     </div>
   )

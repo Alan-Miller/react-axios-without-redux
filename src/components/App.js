@@ -66,6 +66,7 @@ class App extends Component {
           <Workspace initialLoad={this.state.initialLoad}
                     currentCustomer={this.state.currentCustomer}
                     creating={this.state.creating}
+                    createCustomer={this.createCustomer}
                   />
         </div>
       </div>
