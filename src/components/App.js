@@ -1,13 +1,12 @@
 
-
 import React, { Component } from 'react';
 import './App.css';
-import {getCustomerList, postCustomer, getCustomer, updateCustomer, deleteCustomer} from '../customers';
 
 import Header from './Header/Header';
 import List from './List/List';
 import Workspace from './Workspace/Workspace';
 
+import { getCustomerList, postCustomer, getCustomer, updateCustomer, deleteCustomer } from '../customers';
 
 class App extends Component {
   constructor() {
