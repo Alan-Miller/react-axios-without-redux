@@ -17,6 +17,24 @@
       "email": "sarahcroft@gmail.com",
       "phone": "(325)-345-2352",
       "log": "This\nis\nanother\ntest\nlog"
+    },
+    {
+      "first": "Guy",
+      "last": "Smiley",
+      "email": "smileyallthetimey@sesame.com",
+      "phone": "1012345882",
+      "status": "New Customer",
+      "log": "",
+      "id": 3
+    },
+    {
+      "first": "Guy",
+      "last": "Smiley",
+      "email": "smileyallthetimey@sesame.com",
+      "phone": "1012345882",
+      "status": "New Customer",
+      "log": "",
+      "id": 4
     }
   ]
 }

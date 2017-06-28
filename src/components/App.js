@@ -1,6 +1,8 @@
+
+
 import React, { Component } from 'react';
 import './App.css';
-import {getCustomerList, postCustomer} from '../customers';
+import {getCustomerList, postCustomer, getCustomer, updateCustomer, deleteCustomer} from '../customers';
 
 import Header from './Header/Header';
 import List from './List/List';
@@ -18,6 +20,9 @@ class App extends Component {
     }
     this.startNewCustomer = this.startNewCustomer.bind(this)
     this.createCustomer = this.createCustomer.bind(this)
+    this.selectCustomer = this.selectCustomer.bind(this)
+    this.saveEdit = this.saveEdit.bind(this)
+    this.removeCustomer = this.removeCustomer.bind(this)
   }
 
   componentDidMount() {
@@ -48,6 +53,30 @@ class App extends Component {
     })
   }
 
+  selectCustomer(id) {
+    getCustomer(id).then(res => {
+      this.setState({
+        currentCustomer: res
+        ,initialLoad: false
+      })
+    })
+  }
+
+  saveEdit(id, customer) {
+    updateCustomer(id, customer).then(list => {
+      getCustomerList().then(() => {
+        this.setState({
+          customerList: list
+          ,currentCustomer: customer
+        })
+      })
+    })
+  }
+
+  removeCustomer(id) {
+    deleteCustomer(id);
+  }
+
   render() {
     // var {startNewCustomer} = this.props;
 
@@ -60,6 +89,7 @@ class App extends Component {
             <List
               customerList={this.state.customerList || []}
               startNewCustomer={this.startNewCustomer}
+              selectCustomer={this.selectCustomer}
               />
             : null
           }
@@ -67,6 +97,8 @@ class App extends Component {
                     currentCustomer={this.state.currentCustomer}
                     creating={this.state.creating}
                     createCustomer={this.createCustomer}
+                    saveEdit={this.saveEdit}
+                    removeCustomer={this.removeCustomer}
                   />
         </div>
       </div>

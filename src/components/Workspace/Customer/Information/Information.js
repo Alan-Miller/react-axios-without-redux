@@ -2,7 +2,7 @@ import React from 'react';
 import ToggleEdit from '../ToggleEdit/ToggleEdit';
 import './Information.css';
 
-export default function Information( { id, first, last, email, phone }) {
+export default function Information( { id, first, last, email, phone, updateCustomer }) {
   return (
 
     <div id="CustomerInformation__container">
